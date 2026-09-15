@@ -5,12 +5,16 @@
  */
 package tp4grupo17;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author Agos
  */
 public class Colegio extends javax.swing.JFrame {
-
+protected static Set<Materia> materias= new HashSet<>();
+protected static Set<Alumno> alumnos= new HashSet<>();
     /**
      * Creates new form Colegio
      */
@@ -27,50 +31,124 @@ public class Colegio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        dkpColegio = new javax.swing.JDesktopPane();
+        mbarMenu = new javax.swing.JMenuBar();
+        menuAlumno = new javax.swing.JMenu();
+        mitemAgregarAlumno = new javax.swing.JMenuItem();
+        menuMateria = new javax.swing.JMenu();
+        mitemAgregarMateria = new javax.swing.JMenuItem();
+        menuInscripcion = new javax.swing.JMenu();
+        MitemInscribirse = new javax.swing.JMenuItem();
+        menuSalir = new javax.swing.JMenu();
+        MitemSalir = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout dkpColegioLayout = new javax.swing.GroupLayout(dkpColegio);
+        dkpColegio.setLayout(dkpColegioLayout);
+        dkpColegioLayout.setHorizontalGroup(
+            dkpColegioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 785, Short.MAX_VALUE)
+        );
+        dkpColegioLayout.setVerticalGroup(
+            dkpColegioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 463, Short.MAX_VALUE)
+        );
+
+        menuAlumno.setText("Alumno");
+
+        mitemAgregarAlumno.setText("Agregar Alumno");
+        mitemAgregarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitemAgregarAlumnoActionPerformed(evt);
+            }
+        });
+        menuAlumno.add(mitemAgregarAlumno);
+
+        mbarMenu.add(menuAlumno);
+
+        menuMateria.setText("Materia");
+
+        mitemAgregarMateria.setText("Agregar Materia");
+        mitemAgregarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitemAgregarMateriaActionPerformed(evt);
+            }
+        });
+        menuMateria.add(mitemAgregarMateria);
+
+        mbarMenu.add(menuMateria);
+
+        menuInscripcion.setText("Inscripcion");
+
+        MitemInscribirse.setText("Inscribirse");
+        MitemInscribirse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MitemInscribirseActionPerformed(evt);
+            }
+        });
+        menuInscripcion.add(MitemInscribirse);
+
+        mbarMenu.add(menuInscripcion);
+
+        menuSalir.setText("Salir");
+
+        MitemSalir.setText("Salir");
+        MitemSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MitemSalirActionPerformed(evt);
+            }
+        });
+        menuSalir.add(MitemSalir);
+
+        mbarMenu.add(menuSalir);
+
+        setJMenuBar(mbarMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(dkpColegio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(dkpColegio)
         );
 
         pack();
     }// </editor-fold>                        
 
+    private void mitemAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+        VistaAlumnos vistaAlumnos = new VistaAlumnos();
+        
+        dkpColegio.add(vistaAlumnos);
+        vistaAlumnos.setVisible(true);
+    }                                                  
+
+    private void mitemAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+        VistaMaterias vistaMaterias= new VistaMaterias();
+        
+        dkpColegio.add(vistaMaterias);
+        vistaMaterias.setVisible(true);
+    }                                                   
+
+    private void MitemSalirActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        dispose();
+    }                                          
+
+    private void MitemInscribirseActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        VistaInscripcion vistaInscripcion = new VistaInscripcion();
+        
+        dkpColegio.add(vistaInscripcion);
+        vistaInscripcion.setVisible(true);
+    }                                                
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+      
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Colegio().setVisible(true);
@@ -79,5 +157,15 @@ public class Colegio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JMenuItem MitemInscribirse;
+    private javax.swing.JMenuItem MitemSalir;
+    private javax.swing.JDesktopPane dkpColegio;
+    private javax.swing.JMenuBar mbarMenu;
+    private javax.swing.JMenu menuAlumno;
+    private javax.swing.JMenu menuInscripcion;
+    private javax.swing.JMenu menuMateria;
+    private javax.swing.JMenu menuSalir;
+    private javax.swing.JMenuItem mitemAgregarAlumno;
+    private javax.swing.JMenuItem mitemAgregarMateria;
     // End of variables declaration                   
 }
