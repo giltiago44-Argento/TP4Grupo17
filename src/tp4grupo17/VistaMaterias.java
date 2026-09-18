@@ -5,17 +5,20 @@
  */
 package tp4grupo17;
 
+import java.util.HashSet;
+import java.util.Set;
 /**
  *
  * @author Agos
  */
 public class VistaMaterias extends javax.swing.JInternalFrame {
-
+        protected static Set<Materia> materias ;
     /**
      * Creates new form VistaMaterias
      */
-    public VistaMaterias() {
+    public VistaMaterias(Set<Materia> materia) {
         initComponents();
+        this.materias = materia;
     }
 
     /**
@@ -36,6 +39,7 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
         txtNombreMateria = new javax.swing.JTextField();
         btnAgregarMateria = new javax.swing.JButton();
         btnSalirMateria = new javax.swing.JButton();
+        lblCart = new javax.swing.JLabel();
         lblAgregarMateria = new javax.swing.JLabel();
 
         lblLegajo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -61,6 +65,11 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
         btnAgregarMateria.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAgregarMateria.setText("AGREGAR");
         btnAgregarMateria.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAgregarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarMateriaActionPerformed(evt);
+            }
+        });
 
         btnSalirMateria.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSalirMateria.setText("SALIR");
@@ -78,22 +87,26 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(88, 88, 88)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblanioMateria)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(btnAgregarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                            .addComponent(btnSalirMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblLegajo)
-                                .addComponent(lblNombreMateria))
-                            .addGap(28, 28, 28)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtIDMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtAnioMateria, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                                .addComponent(txtNombreMateria)))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addComponent(lblCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblanioMateria)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnAgregarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                                    .addComponent(btnSalirMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblLegajo)
+                                        .addComponent(lblNombreMateria))
+                                    .addGap(28, 28, 28)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtIDMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtAnioMateria, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                        .addComponent(txtNombreMateria)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +123,9 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblanioMateria)
                     .addComponent(txtAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCart, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalirMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -127,7 +142,7 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblAgregarMateria)
@@ -154,12 +169,25 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirMateriaActionPerformed
 
+    private void btnAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMateriaActionPerformed
+        String nombre = txtNombreMateria.getText();
+        int iD = Integer.parseInt(txtIDMateria.getText());
+        int Año = Integer.parseInt(txtAnioMateria.getText());
+        Materia mat = new Materia(iD, nombre, Año);
+        materias.add(mat);
+        txtNombreMateria.setText("");
+        txtIDMateria.setText("");
+        txtAnioMateria.setText("");
+        lblCart.setText("Materia " + nombre + " agregada con exito");
+    }//GEN-LAST:event_btnAgregarMateriaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMateria;
     private javax.swing.JButton btnSalirMateria;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAgregarMateria;
+    private javax.swing.JLabel lblCart;
     private javax.swing.JLabel lblLegajo;
     private javax.swing.JLabel lblNombreMateria;
     private javax.swing.JLabel lblanioMateria;

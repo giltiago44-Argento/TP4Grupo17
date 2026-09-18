@@ -120,14 +120,14 @@ protected static Set<Alumno> alumnos= new HashSet<>();
     }// </editor-fold>                        
 
     private void mitemAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-        VistaAlumnos vistaAlumnos = new VistaAlumnos();
+        VistaAlumnos vistaAlumnos = new VistaAlumnos(alumnos);
         
         dkpColegio.add(vistaAlumnos);
         vistaAlumnos.setVisible(true);
     }                                                  
 
     private void mitemAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {                                                    
-        VistaMaterias vistaMaterias= new VistaMaterias();
+        VistaMaterias vistaMaterias= new VistaMaterias(materias);
         
         dkpColegio.add(vistaMaterias);
         vistaMaterias.setVisible(true);
@@ -138,7 +138,7 @@ protected static Set<Alumno> alumnos= new HashSet<>();
     }                                          
 
     private void MitemInscribirseActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        VistaInscripcion vistaInscripcion = new VistaInscripcion();
+        VistaInscripcion vistaInscripcion = new VistaInscripcion(alumnos, materias);
         
         dkpColegio.add(vistaInscripcion);
         vistaInscripcion.setVisible(true);
